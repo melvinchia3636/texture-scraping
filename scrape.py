@@ -18,6 +18,6 @@ for i in soup:
 		for j in i.findAll('a'):
 			resource = 'https://texturehaven.com'+j['href']
 			print(resource)
-			if not os.path.isfile(os.path.join('textures',title,type_of_texture,resource.split('/')[-1])) and '1k' in resource:
+			if not os.path.isfile(os.path.join('textures',title,type_of_texture,resource.split('/')[-1])):
 				with open(os.path.join('textures',title,type_of_texture,resource.split('/')[-1]), 'wb') as writer:
 					writer.write(requests.get(resource).content)
